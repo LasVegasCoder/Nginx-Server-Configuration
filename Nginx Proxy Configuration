@@ -1,0 +1,35 @@
+# Nginx Proxy Server Configuration.
+# 
+# author	: Prince Ademola Adeyemi
+# email		: prince@vegasnewspaper.com
+# social	: http://facebook.com/YourVegasPrince
+#
+# note		: Tested with nginx version: nginx/1.10.3 (Ubuntu)
+# dist		: 4.8.0-58-generic #63~16.04.1-Ubuntu 
+# date		: Thu Aug 24 00:42:56 CEST 2017
+# version	: V1.10 Private
+# 
+#
+
+server {
+
+	 listen 1935;
+     listen 80;
+     listen 1940;
+     listen 19350;
+     listen 1738;
+
+	
+    server_name *.afrtv.net;
+
+    location / {
+		proxy_buffers 16 4k;
+		proxy_buffer_size 2k;
+		
+        proxy_pass http://172.19.35.254:1935;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}

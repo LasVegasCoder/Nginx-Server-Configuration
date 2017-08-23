@@ -23,8 +23,8 @@ server {
     server_name *.afrtv.net;
 
     location / {
-		proxy_buffers 16 4k;
-		proxy_buffer_size 2k;
+	proxy_buffers 16 4k;
+	proxy_buffer_size 2k;
 		
         proxy_pass http://172.19.35.254:1935;
         proxy_set_header Host $host;

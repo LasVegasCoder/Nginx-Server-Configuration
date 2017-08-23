@@ -13,7 +13,7 @@
 
 server {
 
-	 listen 1935;
+     listen 1935;
      listen 80;
      listen 1940;
      listen 19350;
